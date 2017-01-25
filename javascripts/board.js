@@ -4,7 +4,6 @@ class Board {
   }
 
   render(callback){
-    debugger
     let $board = $('#board')
     this.positions.forEach((position, i) => {
       // let square = new Square(position)

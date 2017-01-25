@@ -9,16 +9,22 @@ class TicTacToe {
   }
 
   addEventHandlers(){
-    debugger
-    $('.square').click(function (event){
-      debugger
-      if (this.playCount % 2 === 0) {
-        var currentPlayer = 'X'
-      } else {
-        var currentPlayer = 'O'
-      }
+    $('.square').click( (event) => {
+      this.updateBoard(event.target.id)
+      $(event.target).text(this.currentPlayer())
       this.playCount += 1
-      $(this).text(currentPlayer)
-    }.bind(this))
+    })
+  }
+
+  updateBoard(index){
+    this.board.positions[index] = this.currentPlayer()
+  }
+
+  currentPlayer(){
+    if (this.playCount % 2 === 0) {
+      return  'X'
+    } else {
+      return 'O'
+    }
   }
 }
